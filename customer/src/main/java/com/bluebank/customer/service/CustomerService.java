@@ -2,12 +2,21 @@ package com.bluebank.customer.service;
 
 import com.bluebank.customer.model.Customer;
 import com.bluebank.customer.repository.CustomerRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService(CustomerRepository customerRepository) {
+@AllArgsConstructor
+public class CustomerService {
+
+    private final CustomerRepository customerRepository;
+    
     public void registerCustomer(Customer customer){
         // TODO: check if email is valid, if its not taken
         customerRepository.save(customer);
+    }
+
+    public Boolean exists(Long id){
+        return customerRepository.existsById(id);
     }
 }

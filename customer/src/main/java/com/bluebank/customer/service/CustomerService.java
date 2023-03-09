@@ -5,6 +5,8 @@ import com.bluebank.customer.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class CustomerService {
@@ -18,5 +20,9 @@ public class CustomerService {
 
     public Boolean exists(Long id){
         return customerRepository.existsById(id);
+    }
+
+    public Customer getCustomerData(Long id){
+        return customerRepository.findById(id).orElse(null);
     }
 }

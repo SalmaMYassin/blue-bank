@@ -12,6 +12,7 @@
     <modules>
         <module>customer</module>
         <module>account</module>
+        <module>transaction</module>
     </modules>
 
     <properties>
